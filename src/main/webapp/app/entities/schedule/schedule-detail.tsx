@@ -1,0 +1,76 @@
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { Link, RouteComponentProps } from 'react-router-dom';
+import { Button, Row, Col } from 'reactstrap';
+import { Translate, ICrudGetAction } from 'react-jhipster';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import { IRootState } from 'app/shared/reducers';
+import { getEntity } from './schedule.reducer';
+import { ISchedule } from 'app/shared/model/schedule.model';
+import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
+
+export interface IScheduleDetailProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
+
+export const ScheduleDetail = (props: IScheduleDetailProps) => {
+  useEffect(() => {
+    props.getEntity(props.match.params.id);
+  }, []);
+
+  const { scheduleEntity } = props;
+  return (
+    <Row>
+      <Col md="8">
+        <h2>
+          <Translate contentKey="tutorApp.schedule.detail.title">Schedule</Translate> [<b>{scheduleEntity.id}</b>]
+        </h2>
+        <dl className="jh-entity-details">
+          <dt>
+            <span id="weekDay">
+              <Translate contentKey="tutorApp.schedule.weekDay">Week Day</Translate>
+            </span>
+          </dt>
+          <dd>{scheduleEntity.weekDay}</dd>
+          <dt>
+            <span id="start">
+              <Translate contentKey="tutorApp.schedule.start">Start</Translate>
+            </span>
+          </dt>
+          <dd>{scheduleEntity.start}</dd>
+          <dt>
+            <Translate contentKey="tutorApp.schedule.tutorDetails">Tutor Details</Translate>
+          </dt>
+          <dd>{scheduleEntity.tutorDetails ? scheduleEntity.tutorDetails.id : ''}</dd>
+          <dt>
+            <Translate contentKey="tutorApp.schedule.course">Course</Translate>
+          </dt>
+          <dd>{scheduleEntity.course ? scheduleEntity.course.id : ''}</dd>
+        </dl>
+        <Button tag={Link} to="/schedule" replace color="info">
+          <FontAwesomeIcon icon="arrow-left" />{' '}
+          <span className="d-none d-md-inline">
+            <Translate contentKey="entity.action.back">Back</Translate>
+          </span>
+        </Button>
+        &nbsp;
+        <Button tag={Link} to={`/schedule/${scheduleEntity.id}/edit`} replace color="primary">
+          <FontAwesomeIcon icon="pencil-alt" />{' '}
+          <span className="d-none d-md-inline">
+            <Translate contentKey="entity.action.edit">Edit</Translate>
+          </span>
+        </Button>
+      </Col>
+    </Row>
+  );
+};
+
+const mapStateToProps = ({ schedule }: IRootState) => ({
+  scheduleEntity: schedule.entity,
+});
+
+const mapDispatchToProps = { getEntity };
+
+type StateProps = ReturnType<typeof mapStateToProps>;
+type DispatchProps = typeof mapDispatchToProps;
+
+export default connect(mapStateToProps, mapDispatchToProps)(ScheduleDetail);

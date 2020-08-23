@@ -1,0 +1,33 @@
+{
+  "name": "Feedback",
+  "fields": [
+    {
+      "fieldName": "comment",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "rating",
+      "fieldType": "Long"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "course",
+      "otherEntityRelationshipName": "feedback",
+      "relationshipName": "classId",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200823021726",
+  "entityTableName": "feedback",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["tutor"]
+}

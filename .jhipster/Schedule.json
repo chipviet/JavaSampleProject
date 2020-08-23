@@ -1,0 +1,41 @@
+{
+  "name": "Schedule",
+  "fields": [
+    {
+      "fieldName": "weekDay",
+      "fieldType": "WeekDay",
+      "fieldValues": "Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday"
+    },
+    {
+      "fieldName": "start",
+      "fieldType": "Long"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "tutorDetails",
+      "otherEntityRelationshipName": "scheduleId",
+      "relationshipName": "tutorDetails",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "course",
+      "otherEntityRelationshipName": "scheduleId",
+      "relationshipName": "course",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200823021926",
+  "entityTableName": "schedule",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["tutor"]
+}

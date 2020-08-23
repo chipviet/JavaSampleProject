@@ -1,0 +1,44 @@
+{
+  "name": "Course",
+  "fields": [
+    {
+      "fieldName": "level",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "basicTuition",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "currencyCode",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "subject",
+      "otherEntityRelationshipName": "course",
+      "relationshipName": "subjectId",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "schedule",
+      "otherEntityRelationshipName": "course",
+      "relationshipName": "scheduleId"
+    }
+  ],
+  "changelogDate": "20200823021626",
+  "entityTableName": "course",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["tutor"]
+}

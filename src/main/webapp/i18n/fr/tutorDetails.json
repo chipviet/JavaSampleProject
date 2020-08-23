@@ -1,0 +1,25 @@
+{
+  "tutorApp": {
+    "tutorDetails": {
+      "home": {
+        "title": "TutorDetails",
+        "createLabel": "Créer un nouveau Tutor Details",
+        "createOrEditLabel": "Créer ou éditer un Tutor Details",
+        "notFound": "Aucun Tutor Details trouvé"
+      },
+      "created": "Un nouveau Tutor Details a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Tutor Details avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Tutor Details avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Tutor Details {{ id }} ?"
+      },
+      "detail": {
+        "title": "Tutor Details"
+      },
+      "literacy": "Literacy",
+      "efficency": "Efficency",
+      "subjectId": "Subject Id",
+      "scheduleId": "Schedule Id"
+    }
+  }
+}

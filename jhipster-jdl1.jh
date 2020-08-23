@@ -1,0 +1,85 @@
+application {
+  config {
+    baseName tutor,
+    applicationType monolith,
+    packageName com.smartlink.ch.ewallet,
+    serverPort 8081,
+    prodDatabaseType mysql,
+    devDatabaseType mysql,
+    cacheProvider ehcache,
+    enableHibernateCache true,
+    buildTool maven,
+    enableSwaggerCodegen true,
+    clientFramework react,
+    useSass true,
+    authenticationType jwt,
+    languages [en,fr],
+    nativeLanguage en,
+    testFrameworks [protractor,gatling]
+  }
+  entities *
+}
+
+enum Gender {
+	MALE, FEMALE
+}
+
+enum WeekDay {
+	Sunday , Monday , Tuesday , Wednesday , Thursday , Friday , Saturday 
+}
+
+enum WalletStatus {
+	ACTIVE, INACTIVE, DELETED
+}
+
+enum TransactionType {
+	PAYMENT, TOPOFF, READINESS
+}
+
+entity TutorDetails {
+	literacy String,
+    efficency Long,
+}
+
+entity Class {
+	level String ,
+    basicTuition Double ,
+    currencyCode String ,
+}
+
+entity Feedback {
+	comment String ,
+    rating Long ,
+}
+
+entity Subject {
+	nameSubject String
+}
+
+entity Schedule {
+	weekDay WeekDay,
+    start Long
+}
+
+entity Salary {
+	lever Long,
+    conefficient Double
+}
+
+relationship OneToOne {
+	Salary{levelId} to Class,
+    Class{subjectId} to Subject
+}
+
+relationship OneToMany {
+	TutorDetails{subjectId} to Subject,
+    TutorDetails{scheduleId} to Schedule,
+    Class{scheduleId} to Schedule
+}
+
+relationship ManyToOne {
+    Feedback{classId} to Class,
+}
+
+paginate  Class, Subject, Feedback with pagination 
+

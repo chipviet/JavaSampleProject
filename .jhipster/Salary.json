@@ -1,0 +1,34 @@
+{
+  "name": "Salary",
+  "fields": [
+    {
+      "fieldName": "lever",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "conefficient",
+      "fieldType": "Double"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "course",
+      "otherEntityRelationshipName": "salary",
+      "relationshipName": "levelId",
+      "otherEntityField": "id",
+      "ownerSide": true
+    }
+  ],
+  "changelogDate": "20200823022026",
+  "entityTableName": "salary",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["tutor"]
+}

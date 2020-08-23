@@ -1,0 +1,38 @@
+{
+  "name": "TutorDetails",
+  "fields": [
+    {
+      "fieldName": "literacy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "efficency",
+      "fieldType": "Long"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "subject",
+      "otherEntityRelationshipName": "tutorDetails",
+      "relationshipName": "subjectId"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "schedule",
+      "otherEntityRelationshipName": "tutorDetails",
+      "relationshipName": "scheduleId"
+    }
+  ],
+  "changelogDate": "20200823021526",
+  "entityTableName": "tutor_details",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["tutor"]
+}
